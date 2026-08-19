@@ -8,7 +8,7 @@ https://github.com/user-attachments/assets/46a777d1-8ff3-4e91-8100-98f9004c6158
 > This will likely only work if CEF GPU acceleration is enabled. Not tested on Linux or with DXVK.
 
 > [!NOTE]
-> A stutter occurs towards the end of the load cycle since the game tries to hide the loading screen as soon as 100% is hit. I wanted to keep it present to make the end less abrupt, which results in this freeze and continue behaviour as seen in the video. If anyone has an alternative solution, I'd love to hear it.
+> A stutter occurs towards the end of the load cycle since the game tries to hide the loading screen as soon as 100% is hit. I re-show the screen to allow ring completion and a fade out to make the end less abrupt before hiding it again, which results in this freeze and continue behaviour as seen in the video. If anyone has an alternative solution, I'd love to hear it.
 
 ## License
 
