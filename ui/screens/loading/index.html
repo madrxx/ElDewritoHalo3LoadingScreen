@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Loading</title>
+        <link rel="stylesheet" type="text/css" href="loading.css">
+        <script>
+            (function () {
+                var match = window.location.search.match(/(?:\?|&)testing(?:=([^&]*))?(?:&|$)/i);
+                var value = match && match[1] ? match[1].toLowerCase() : "";
+                var enabled = Boolean(match) && value !== "0" && value !== "false" && value !== "off";
+                window.loadingBrowserTestingMode = enabled && window.location.protocol !== "dew:";
+                if (window.loadingBrowserTestingMode) {
+                    document.documentElement.classList.add("browser-testing-mode");
+                    return;
+                }
+
+                document.write('<link rel="stylesheet" type="text/css" href="dew://lib/window-resize.css">');
+                document.write('<script type="text/javascript" src="dew://lib/dew.js"><\/script>');
+                document.write('<script type="text/javascript" src="dew://lib/jquery-2.2.1.min.js"><\/script>');
+                document.write('<script type="text/javascript" src="dew://lib/pak-aware-context.js"><\/script>');
+            }());
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="page_content">
+                <div class="container">
+                    <div class="genericLoader">
+                        <img class="background" data-pak="mainmenu" data-url="assets/haloonline/loading_bg" data-fallback="dew://assets/haloonline/loading_bg.jpg">
+                        <img class="eldorito" data-pak="mainmenu" data-url="assets/ed/EldoritoLogoFinalSmall" data-fallback="dew://assets/ed//EldoritoLogoFinalSmall.png">
+                        <img class="eldorito loading" data-pak="mainmenu" data-url="assets/ed/EldoritoLogoFinalBlueSmall" data-fallback="dew://assets/ed//EldoritoLogoFinalBlueSmall.png">
+                    </div>
+
+                    <main id="map-loader">
+                        <canvas id="canvas" aria-label="Halo 3 ring loading animation"></canvas>
+
+                        <section id="metadata" aria-live="polite">
+                            <div id="session-details">
+                                <div id="game-variant-field" class="metadata-field">
+                                    <span class="field-label">Game Variant</span>
+                                    <span id="game-variant"></span>
+                                </div>
+                                <div id="game-rules-field" class="metadata-field metadata-secondary">
+                                    <span id="game-rules"></span>
+                                </div>
+                            </div>
+
+                            <div id="server-details">
+                                <div id="server-name-field" class="metadata-field">
+                                    <span class="field-label">Server</span>
+                                    <span id="server-name"></span>
+                                </div>
+                                <div id="server-message-field" class="metadata-field">
+                                    <span id="server-message"></span>
+                                </div>
+                            </div>
+
+                            <div id="map-details">
+                                <div id="map-name-field" class="metadata-field">
+                                    <span class="field-label">Map</span>
+                                    <h1 id="map-name"></h1>
+                                </div>
+                                <div id="campaign-details-field" class="metadata-field metadata-secondary">
+                                    <span id="campaign-details"></span>
+                                </div>
+                                <p id="map-description-field" class="metadata-field"><span id="map-description"></span></p>
+                                <div id="map-author-field" class="metadata-field metadata-secondary">
+                                    <span class="field-label">Map Author</span>
+                                    <span id="map-author"></span>
+                                </div>
+                                <div id="mod-details-field" class="metadata-field metadata-secondary">
+                                    <span class="field-label">Mod</span>
+                                    <span id="mod-details"></span>
+                                </div>
+                            </div>
+
+
+                            <div id="progress-percentage-field" class="metadata-field">
+                                <span id="progress-percentage">0%</span>
+                            </div>
+                        </section>
+                        <div id="map-fade" aria-hidden="true"></div>
+
+                        <p id="renderer-error">WebGL 2 is required for the loading animation.</p>
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        <script src="loading.js"></script>
+        <script>
+            if (!window.loadingBrowserTestingMode) {
+                document.write('<script src="dew://lib/window-resize.js"><\/script>');
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "_help": {
+    "branding.logo": "Use eldorito, halo3, halo3-bungie, none, or custom.",
+    "branding.customLogo": "For custom, provide a path or URL relative to the loading screen.",
+    "branding.customLogoUsesAlphaMask": "Enable only for a black-and-white mask such as the original Halo 3 corner textures.",
+    "progress.smoothingSeconds": "How slowly the ring closes the distance to each reported progress point.",
+    "progress.velocitySmoothingSeconds": "How gradually the ring accelerates after a report and decelerates as it approaches that point.",
+    "progress.reportVelocityResponse": "Multiplier for feed-forward catch-up based on the measured speed of incoming progress reports.",
+    "progress.lagAccelerationThresholdPercent": "Reported-to-rendered percentage-point gap beyond which additional catch-up acceleration is applied.",
+    "progress.baselineDriftPercentPerSecond": "Initial speculative ring speed and normal speed when rendered progress is not ahead of reported progress.",
+    "progress.aheadCrawlPercentPerSecond": "Long-stall crawl speed after rendered progress leads reported progress by the slowdown threshold.",
+    "progress.aheadSlowdownThresholdPercent": "Rendered lead, in percentage points, across which baseline drift eases down to the ahead crawl.",
+    "progress.speculativeCeilingPercent": "No-report ceiling approached by speculative drift; reported progress proportionally unlocks the remaining headroom below 100%.",
+    "progress.finishDurationSeconds": "Maximum duration of the final ring catch-up; values above 0.5 seconds are clamped.",
+    "render.fadeInSeconds": "Duration of the map loading screen's fade in from black.",
+    "render.fadeOutSeconds": "Duration of the final overlay fade before the loader requests hide; values above 0.5 seconds are clamped."
+  },
+  "branding": {
+    "show": true,
+    "logo": "halo3-bungie",
+    "customLogo": "",
+    "customLogoUsesAlphaMask": false,
+    "scale": 0.34,
+    "padding": 0.14
+  },
+  "display": {
+    "mapName": true,
+    "gameVariant": true,
+    "mapDescription": true,
+    "serverName": true,
+    "serverMessage": true,
+    "mapAuthor": true,
+    "modDetails": true,
+    "gameRules": true,
+    "campaignDetails": true
+  },
+  "progress": {
+    "smoothingSeconds": 2.2,
+    "velocitySmoothingSeconds": 0.65,
+    "reportVelocityResponse": 1,
+    "lagAccelerationThresholdPercent": 8,
+    "baselineDriftPercentPerSecond": 0.35,
+    "aheadCrawlPercentPerSecond": 0.02,
+    "aheadSlowdownThresholdPercent": 5,
+    "speculativeCeilingPercent": 98,
+    "finishDurationSeconds": 0.35,
+    "showPercentage": false
+  },
+  "render": {
+    "grid": true,
+    "lines": true,
+    "blocks": true,
+    "particles": true,
+    "vignette": true,
+    "fadeInSeconds": 1.25,
+    "fadeOutSeconds": 0.5
+  }
+}
